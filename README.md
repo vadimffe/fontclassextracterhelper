@@ -1,17 +1,17 @@
-# FontAwesome Brand Icons Generator
+# Font to C# Glyph Mapping Generator
 
-This Python script generates a C# static class containing constants for Font Awesome brand icons based on glyph names and Unicode mappings from a font file.
+This Python script generates a C# class containing Unicode character mappings as constants by reading glyph data from a font file (e.g., `.otf`, `.ttf`). It is particularly suitable for fonts like FontAwesome but can also be used with other fonts.
 
 ## Features
 
-- Converts glyph names to PascalCase constant names, replacing hyphens with underscores.
-- Ensures all constant names are valid C# identifiers.
-- Extracts Unicode mappings from the font's `cmap` table.
-- Writes the generated C# class to a file.
+- **Extract Unicode mappings** from the font file's `cmap` table.
+- **Convert glyph names** into valid, PascalCase C# constant names.
+- Handles glyph names starting with numbers or special characters.
+- Outputs a formatted C# file with Unicode constants.
+
+---
 
 ## Example Output
-
-The script generates a C# class like this:
 
 ```csharp
 using System;
@@ -22,7 +22,7 @@ using System.Threading.Tasks;
 
 namespace CSharp.Sample.Helpers
 {
-    public static class FontAwesomeBrandIcons
+    public static class FontAwesomeBrandsIcons
     {
         public const string Space = "\u0020";
         public const string Exclamation = "\u0021";
@@ -35,6 +35,5 @@ namespace CSharp.Sample.Helpers
         public const string Hyphen = "\u002d";
         public const string _0 = "\u0030";
         public const string _1 = "\u0031";
-        // ... more constants
     }
 }
